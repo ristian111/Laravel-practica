@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->double('precio');
-            $table->text('descripcion');
-            $table->timestamps();
+            $table->string('unidad');
+            $table->double('precio_compra');
+            $table->double('precio_venta');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

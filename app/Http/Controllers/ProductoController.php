@@ -29,7 +29,8 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos = $request->only(['nombre', 'unidad', 'precio_venta', 'precio_compra']);
+        Producto::create($datos);
     }
 
     /**
